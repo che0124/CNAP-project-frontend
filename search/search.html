@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="./../style.css">
+    <link rel="stylesheet" href="./../components/navbar.css">
+    <link rel="stylesheet" href="./../components/dashboard.css">
+    <link rel="stylesheet" href="search.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="page-container">
+            <div class="search">
+                <div class="main-content">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search...">
+                        <button onclick="performSearch()">Search</button>
+                    </div>
+                    <div class="search-results">
+                        <h2>Search Results</h2>
+                        <div id="results-container">
+                            <!-- Search results will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('search-input').value;
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            // Simulate search results
+            const results = [
+                { title: 'Result 1', summary: 'Summary of result 1...' },
+                { title: 'Result 2', summary: 'Summary of result 2...' },
+                { title: 'Result 3', summary: 'Summary of result 3...' }
+            ];
+
+            results.forEach(result => {
+                const resultElement = document.createElement('div');
+                resultElement.classList.add('result');
+                resultElement.innerHTML = `
+                    <h3>${result.title}</h3>
+                    <p>${result.summary}</p>
+                `;
+                resultsContainer.appendChild(resultElement);
+            });
+        }
+    </script>
+    <script src="./../components/navbar.js"></script>
+    <script src="./../components/dashboard.js"></script>
+</body>
+
+</html>
